@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./Assets/css/bootstrap.min.css";
+import "./Assets/css/flex-slider.css";
+import "./Assets/css/font-awesome.css";
+import "./Assets/css/lightbox.css";
+import "./Assets/css/owl-carousel.css";
+import "./Assets/css/templatemo-klassy-cafe";
+
+import { Home } from "./Pages/index";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
