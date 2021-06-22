@@ -4,12 +4,18 @@ import "./Assets/css/flex-slider.css";
 import "./Assets/css/font-awesome.css";
 import "./Assets/css/lightbox.css";
 import "./Assets/css/owl-carousel.css";
-import "./Assets/css/templatemo-klassy-cafe";
+import "./Assets/css/style.css";
 
+// import "./Assets/css/custom.css";
+import React from "react";
 import { Home } from "./Pages/index";
 
 function App() {
-  return <Home />;
+  return (
+    <>
+      <Home />
+    </>
+  );
 }
 
 export default App;
