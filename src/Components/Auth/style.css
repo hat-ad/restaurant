@@ -1,0 +1,215 @@
+.google-signin-button {
+  background-color: rgb(255, 255, 255);
+  display: inline-flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.54);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px,
+    rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+  padding: 0.1rem;
+  /* padding-inline: 0.9rem; */
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.google-signin-button:hover {
+  background-color: rgba(197, 197, 197, 0.397);
+  /* box-shadow: rgba(0, 0, 0, 0.411) 0px 2px 2px 0px,
+    rgba(0, 0, 0, 0.432) 0px 0px 1px 0px; */
+}
+.google-signin-button div {
+  margin-right: 10px;
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  border-radius: 2px;
+}
+.google-signin-button span {
+  padding: 10px 10px 10px 0px;
+  font-weight: 500;
+}
+
+.bg-primary {
+  background: #e32249 !important;
+}
+
+.ftco-section {
+  padding: 7em 0;
+}
+
+.ftco-no-pt {
+  padding-top: 0;
+}
+
+.ftco-no-pb {
+  padding-bottom: 0;
+}
+
+.heading-section {
+  font-size: 28px;
+  color: #000;
+}
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.login-wrap {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  -moz-box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+  z-index: 0;
+}
+.login-wrap:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  content: "";
+  background: rgba(0, 0, 0, 0.05);
+  z-index: -1;
+  border-radius: 50% 0 0 0;
+}
+.login-wrap h3 {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+.form-group label {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 0;
+  background: #fff;
+  margin-left: 30px;
+  padding: 0 4px;
+}
+
+.form-control {
+  height: 52px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.form-control:-ms-input-placeholder {
+  /* IE 10+ */
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+.form-control:focus,
+.form-control:active {
+  outline: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  /* border: 1px solid #229ce3; */
+}
+
+textarea.form-control {
+  height: inherit !important;
+}
+
+.btn {
+  cursor: pointer;
+  /* border-radius: 40px; */
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 15px;
+}
+.btn:hover,
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+.btn.btn-primary {
+  background: #e32249 !important;
+  border: 1px solid #e32249 !important;
+  color: #fff !important;
+  -webkit-box-shadow: 0px 10px 19px -16px black !important;
+  -moz-box-shadow: 0px 10px 19px -16px black !important;
+  box-shadow: 0px 10px 19px -16px black !important;
+}
+.btn.btn-primary:hover {
+  border: 1px solid #e32249;
+  background: transparent;
+  color: #e32249;
+}
+.btn.btn-primary.btn-outline-primary {
+  border: 1px solid #e32249;
+  background: transparent;
+  color: #e32249;
+}
+.btn.btn-primary.btn-outline-primary:hover {
+  border: 1px solid transparent;
+  background: #e32249;
+  color: #fff;
+}
+
+.submit:hover {
+  background: #ba1839 !important;
+}
+.password-button {
+  background-color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding-right: 10px;
+}
+.password-button:focus {
+  background-color: #fff;
+  outline: none;
+  border: none;
+}
+.password-input {
+  border-radius: 5px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.password-input:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #e32249;
+}
+.error {
+  border: 1px solid #e32249;
+}
+.error-text {
+  color: rgb(255, 52, 52);
+  font-size: 14px;
+}
+.sign-up-change {
+  background-color: #fff;
+  border: none;
+  outline: none !important;
+  color: rgb(0, 119, 255);
+  padding: 0;
+}

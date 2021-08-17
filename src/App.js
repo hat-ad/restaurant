@@ -1,19 +1,23 @@
+import React from "react";
+import { AppLoader, ToastNotification } from "./Components";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./Redux/configureStore";
+import Routes from "./Router";
+
 import "./App.css";
 import "./Assets/css/bootstrap.min.css";
-import "./Assets/css/flex-slider.css";
-import "./Assets/css/font-awesome.css";
-import "./Assets/css/lightbox.css";
-import "./Assets/css/owl-carousel.css";
 import "./Assets/css/style.css";
-
-// import "./Assets/css/custom.css";
-import React from "react";
-import { Home } from "./Pages/index";
 
 function App() {
   return (
     <>
-      <Home />
+      <Provider store={store}>
+        <PersistGate loading={<AppLoader />} persistor={persistor}>
+          <ToastNotification />
+          <Routes />
+        </PersistGate>
+      </Provider>
     </>
   );
 }

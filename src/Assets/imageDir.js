@@ -46,6 +46,7 @@ import food06 from "./images/06.jpg";
 import food07 from "./images/07.jpg";
 import food08 from "./images/08.jpg";
 import food09 from "./images/09.jpg";
+import googleSVG from "./images/google.svg";
 
 export {
   klassLogo,
@@ -95,4 +96,5 @@ export {
   food4,
   food5,
   food6,
+  googleSVG,
 };
