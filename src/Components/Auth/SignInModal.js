@@ -33,6 +33,7 @@ const SignIn = ({ show, handleClose, showSignUp }) => {
       password: values.passwordLogin,
     };
     dispatch(loginUser(data));
+    handleClose();
   };
 
   return (
@@ -72,6 +73,7 @@ const SignIn = ({ show, handleClose, showSignUp }) => {
               <button
                 className="submit btn btn-primary btn-outline-primary mt-5 float-right"
                 type="submit"
+                disabled={authDetails.authLoading}
               >
                 {authDetails.authLoading ? (
                   <ButtonLoader height={30} width={80} />

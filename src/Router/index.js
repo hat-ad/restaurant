@@ -39,7 +39,7 @@ export default function Routes() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path={["/", "/verify/:id/:code"]} component={Home} />
         <Route path="/items" component={Order} />
         <PrivateRoute path="/">
           <AfterLogin />

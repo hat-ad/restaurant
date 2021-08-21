@@ -86,6 +86,7 @@ const validateSignUpSchema = Yup.object({
     .required("Please provide a email."),
   phone: Yup.string()
     .min(10, "Phone number should of 10 digits.")
+    .max(10, "Phone number must be 10 digits.")
     .required("Please provide a phone number"),
   password: Yup.string()
     .min(8, "Password should of atleast of 8 characters.")

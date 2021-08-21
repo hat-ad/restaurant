@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import LoginButton from "./GoogleLoginButton";
 import "./style.css";
@@ -6,8 +6,23 @@ import { Modal } from "react-bootstrap";
 
 import FormFields from "./FormFields";
 import { signUpFieldsConfig, validateSignUpSchema } from "../../common/config";
+import Api from "../../Api";
+import { toast } from "react-toastify";
+import ButtonLoader from "../ButtonLoader";
 
 const SignUp = ({ show, handleClose, showSignIn }) => {
+  const [isLoading, setLoading] = useState(false);
+  const handleSignUp = async (values) => {
+    setLoading(true);
+    const response = await Api.post("register", values);
+    console.log(response);
+    if (response.status === 201) {
+      handleClose();
+      toast.success(response.message);
+    } else toast.error(response.message);
+    setLoading(false);
+  };
+
   const SignUpForm = () => {
     return signUpFieldsConfig.map((item, index) => {
       if (index % 2 === 0)
@@ -46,8 +61,8 @@ const SignUp = ({ show, handleClose, showSignIn }) => {
               confirmPassword: "",
             }}
             validationSchema={validateSignUpSchema}
-            onSubmit={async (values) => {
-              alert(JSON.stringify(values, null, 2));
+            onSubmit={(values) => {
+              handleSignUp(values);
             }}
           >
             <Form className="container">
@@ -76,8 +91,9 @@ const SignUp = ({ show, handleClose, showSignIn }) => {
               <button
                 className="submit btn btn-primary btn-outline-primary mt-5 float-right"
                 type="submit"
+                disabled={isLoading}
               >
-                Submit
+                {isLoading ? <ButtonLoader height={30} width={80} /> : "Submit"}
               </button>
             </Form>
           </Formik>

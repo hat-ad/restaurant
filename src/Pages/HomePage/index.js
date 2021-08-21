@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import {
-  whiteLogo,
   tabIcon01,
   tabIcon02,
   tabIcon03,
@@ -20,88 +19,26 @@ import {
   chefs01,
   chefs02,
   chefs03,
-  klassLogo,
 } from "../../Assets/imageDir";
 import Slider from "react-slick";
-import { Button } from "react-bootstrap";
-import { SignUp, SignIn } from "../../Components/";
+import { useLocation } from "react-router-dom";
+import Api from "../../Api";
+import { toast } from "react-toastify";
+import { Footer, Header } from "../../Components";
 
 const Home = () => {
-  const [showSignIn, handleShowSignIn] = useState(false);
-  const [showSignUp, handleShowSignUp] = useState(false);
+  const location = useLocation();
+  useEffect(async () => {
+    if (location.pathname.includes("verify")) {
+      const response = await Api.get(location.pathname.substring(1));
+      if (response.status === 400) toast.error(response.message);
+      else toast.success(response.message);
+    }
+  }, []);
+
   return (
     <>
-      {/* ***** Header Area Start ***** */}
-      <header className="header-area header-sticky">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <nav className="main-nav">
-                {/* <!-- ***** Logo Start ***** --> */}
-                <a href="index.html" className="logo">
-                  <img
-                    src={klassLogo}
-                    align="klassy cafe html template"
-                    alt="logo"
-                  />
-                </a>
-                {/* <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** --> */}
-                <ul className="nav">
-                  <li className="scroll-to-section">
-                    <a href="#top" className="active">
-                      Home
-                    </a>
-                  </li>
-                  <li className="scroll-to-section">
-                    <a href="#about">About</a>
-                  </li>
-
-                  <li className="scroll-to-section">
-                    <a href="#menu">Menu</a>
-                  </li>
-                  <li className="scroll-to-section">
-                    <a href="#chefs">Chefs</a>
-                  </li>
-                  {/* <li className="submenu">
-                    <a href="">Features</a>
-                    <ul>
-                      <li>
-                        <a href="#">Features Page 1</a>
-                      </li>
-                      <li>
-                        <a href="#">Features Page 2</a>
-                      </li>
-                      <li>
-                        <a href="#">Features Page 3</a>
-                      </li>
-                      <li>
-                        <a href="#">Features Page 4</a>
-                      </li>
-                    </ul>
-                  </li>
-                 */}
-                  <li className="scroll-to-section">
-                    <a href="#reservation">Contact Us</a>
-                  </li>
-                  <li className="scroll-to-section">
-                    <Button onClick={() => handleShowSignIn(!showSignIn)}>
-                      Sign In
-                    </Button>
-                  </li>
-                  <li className="scroll-to-section">
-                    <Button onClick={() => handleShowSignUp(!showSignUp)}>
-                      Sign Up
-                    </Button>
-                  </li>
-                </ul>
-                {/* <!-- ***** Menu End ***** --> */}
-              </nav>
-            </div>
-          </div>
-        </div>
-      </header>
-      {/* ***** Header Area End ***** */}
+      <Header />
       {/* ***** Main Banner Area Start ***** */}
       <div id="top">
         <div className="container-fluid">
@@ -1113,67 +1050,7 @@ const Home = () => {
         </div>
       </section>
       {/* ***** Chefs Area Ends *****  */}
-
-      {/* ***** Footer Start *****  */}
-      <footer>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-4 col-xs-12">
-              <div className="right-text-content">
-                <ul className="social-icons">
-                  <li>
-                    <a href="https://www.facebook.com/people/Ashis-Das/100054966106416/">
-                      <i className="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/ashis-das-ba0b60156/">
-                      <i className="fa fa-linkedin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.instagram.com/ashis_672/">
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="logo">
-                <a href="index.html">
-                  <img src={whiteLogo} alt="" />
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-4 col-xs-12">
-              <div className="left-text-content">
-                <p>
-                  © Copyright Klassy Cafe Co.
-                  <br />
-                  Design: TemplateMo
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-      <SignIn
-        show={showSignIn}
-        handleClose={() => handleShowSignIn(false)}
-        showSignUp={() => {
-          handleShowSignIn(false);
-          handleShowSignUp(true);
-        }}
-      />
-      <SignUp
-        show={showSignUp}
-        handleClose={() => handleShowSignUp(false)}
-        showSignIn={() => {
-          handleShowSignIn(true);
-          handleShowSignUp(false);
-        }}
-      />
+      <Footer />
     </>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 import Lottie from "react-lottie";
 import { buttonLoaderOptions } from "../../common/config";
 
-const index = ({ height, width }) => (
+const ButtonLoader = ({ height, width }) => (
   <Lottie
     options={buttonLoaderOptions}
     height={height}
@@ -11,4 +11,4 @@ const index = ({ height, width }) => (
   />
 );
 
-export default index;
+export default ButtonLoader;
