@@ -1,0 +1,44 @@
+.rounded-container {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+.rounded-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  color: tomato;
+}
+.submenu ul {
+  box-shadow: -0.5px -0.5px 10px rgb(202, 202, 202) !important;
+}
+.nav-links:hover {
+  color: #fb5849 !important;
+}
+.active {
+  color: #fb5849 !important;
+}
+.scroll-to-section button {
+  background-color: white !important;
+  color: #fb5849;
+  border: 1px solid #fb5849;
+  border-radius: 5px;
+  padding: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  transition: 0.5s;
+  font-weight: 500;
+  outline: #fb5849 !important;
+}
+.scroll-to-section button:hover {
+  background-color: #fb5849 !important;
+  color: white;
+}
+
+@media (min-width: 767px) {
+  nav {
+    padding-right: 5rem !important;
+    padding-left: 5rem !important;
+  }
+}

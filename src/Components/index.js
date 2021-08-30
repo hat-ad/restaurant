@@ -5,6 +5,8 @@ import AppLoader from "./AppLoader";
 import ButtonLoader from "./ButtonLoader";
 import Header from "./Header";
 import Footer from "./Footer";
+import FoodCard from "./FoodCard";
+import FilterComponent from "./FilterWindow";
 
 export {
   SignIn,
@@ -14,4 +16,6 @@ export {
   ButtonLoader,
   Header,
   Footer,
+  FoodCard,
+  FilterComponent,
 };

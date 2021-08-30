@@ -2106,7 +2106,7 @@ footer .powered .social li a:hover i {
   background: #fff;
 }
 .shop .left-side h4 {
-  background: #e54c2a;
+  /* background: #e54c2a; */
   text-align: center;
   color: #fff;
   margin: 0;
@@ -2236,11 +2236,11 @@ footer .powered .social li a:hover i {
   position: relative;
   overflow: hidden;
 }
-.shop .product-grid .product-thumb .image:hover {
+/* .shop .product-grid .product-thumb .image:hover {
   -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
-}
+} */
 .shop .product-thumb .image .hoverbox {
   position: absolute;
   top: 50%;

@@ -47,7 +47,7 @@ import food07 from "./images/07.jpg";
 import food08 from "./images/08.jpg";
 import food09 from "./images/09.jpg";
 import googleSVG from "./images/google.svg";
-
+import people from "./images/people.png";
 export {
   klassLogo,
   whiteLogo,
@@ -97,4 +97,5 @@ export {
   food5,
   food6,
   googleSVG,
+  people,
 };

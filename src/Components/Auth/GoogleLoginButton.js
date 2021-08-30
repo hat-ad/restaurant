@@ -7,7 +7,7 @@ import { loginThirdparty } from "../../Redux/Actions/authActions";
 
 const client_id = process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID;
 
-const LoginButton = () => {
+const LoginButton = ({ handleClose }) => {
   console.log(client_id);
   const dispatch = useDispatch();
   return (
@@ -46,7 +46,10 @@ const LoginButton = () => {
               return response.json();
             })
             .then(function (data) {
-              dispatch(loginThirdparty(data));
+              if (data.status === 200) {
+                dispatch(loginThirdparty(data.details));
+                handleClose();
+              } else toast.error("Something went wrong! Please try again.");
             });
         }}
         onFailure={(e) => toast.error(e)}

@@ -21,18 +21,22 @@ import {
   chefs03,
 } from "../../Assets/imageDir";
 import Slider from "react-slick";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Api from "../../Api";
 import { toast } from "react-toastify";
 import { Footer, Header } from "../../Components";
 
 const Home = () => {
   const location = useLocation();
+  const history = useHistory();
   useEffect(async () => {
     if (location.pathname.includes("verify")) {
       const response = await Api.get(location.pathname.substring(1));
       if (response.status === 400) toast.error(response.message);
-      else toast.success(response.message);
+      else {
+        toast.success(response.message);
+        history.push("/");
+      }
     }
   }, []);
 
@@ -70,22 +74,22 @@ const Home = () => {
                   >
                     {/* <!-- Item --> */}
                     <div className="item">
-                      <div className="img-fill">
-                        <img src={slide01} alt="" />
+                      <div className="">
+                        <img className="img-fluid" src={slide01} alt="" />
                       </div>
                     </div>
                     {/* <!-- // Item -->
                           <!-- Item --> */}
                     <div className="item">
-                      <div className="img-fill">
-                        <img src={slide02} alt="" />
+                      <div className="">
+                        <img className="img-fluid" src={slide02} alt="" />
                       </div>
                     </div>
                     {/* <!-- // Item -->
                           <!-- Item --> */}
                     <div className="item">
-                      <div className="img-fill">
-                        <img src={slide03} alt="" />
+                      <div className="">
+                        <img className="img-fluid" src={slide03} alt="" />
                       </div>
                     </div>
                     {/* <!-- // Item --> */}
@@ -149,7 +153,7 @@ const Home = () => {
       </section>
       {/* ***** About Area Ends *****  */}
       {/* ***** Menu Area Starts ***** */}
-      <section className="section" id="menu">
+      {/* <section className="section" id="menu">
         <div className="container">
           <div className="row">
             <div className="col-lg-4">
@@ -428,6 +432,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+       */}
       {/* ***** Menu Area Ends ***** */}
       {/* ***** Chefs Area Starts ***** */}
       <section className="section" id="chefs">

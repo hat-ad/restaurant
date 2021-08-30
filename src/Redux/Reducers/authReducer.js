@@ -1,4 +1,4 @@
-import { AUTH_USER, AUTH_USER_COMPLETE } from "../actionTypes";
+import { AUTH_USER, AUTH_USER_COMPLETE, LOGOUT_USER } from "../actionTypes";
 
 const INITIAL_STATE = {
   authDetails: null,
@@ -18,6 +18,11 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         authLoading: false,
+      };
+    case LOGOUT_USER:
+      return {
+        authLoading: false,
+        authDetails: null,
       };
     default:
       return state;

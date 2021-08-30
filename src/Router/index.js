@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { Home, Order } from "../Pages";
+import { Home, Order, OrderConfirmPage } from "../Pages";
 
 function PrivateRoute({ children, ...rest }) {
   const authDetails = useSelector((state) => state.auth.authDetails);
@@ -41,6 +41,7 @@ export default function Routes() {
       <Switch>
         <Route exact path={["/", "/verify/:id/:code"]} component={Home} />
         <Route path="/items" component={Order} />
+        <Route path="/cart" component={OrderConfirmPage} />
         <PrivateRoute path="/">
           <AfterLogin />
         </PrivateRoute>

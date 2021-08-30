@@ -51,7 +51,7 @@ const SignIn = ({ show, handleClose, showSignUp }) => {
             <Form className="container">
               <h3>Sign In</h3>
               <div className="d-flex justify-content-center ">
-                <LoginButton />
+                <LoginButton handleClose={handleClose} />
               </div>
               <br />
               <div className="text-center mb-3 ">

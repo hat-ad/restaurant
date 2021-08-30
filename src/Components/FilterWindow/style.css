@@ -1,0 +1,16 @@
+.heading {
+  background-color: #de5d5d !important;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.close-ico {
+  outline: none !important;
+  border: none;
+  background-color: transparent !important;
+}
+.close-ico i:hover {
+  color: rgba(255, 255, 255, 0.582) !important;
+}
+.close-ico i:active {
+  color: rgba(255, 255, 255, 0.527) !important;
+}

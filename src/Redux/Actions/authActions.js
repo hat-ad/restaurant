@@ -1,4 +1,4 @@
-import { AUTH_USER, AUTH_USER_COMPLETE } from "../actionTypes";
+import { AUTH_USER, AUTH_USER_COMPLETE, LOGOUT_USER } from "../actionTypes";
 import Api from "../../Api";
 import { toast } from "react-toastify";
 
@@ -25,5 +25,12 @@ export const loginThirdparty = (data) => {
   return {
     type: AUTH_USER,
     payload: data,
+  };
+};
+
+export const logout = () => {
+  localStorage.clear();
+  return {
+    type: LOGOUT_USER,
   };
 };
