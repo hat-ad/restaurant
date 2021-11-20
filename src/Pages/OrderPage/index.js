@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { FilterComponent, FoodCard, Footer, Header } from "../../Components";
 import "./style.css";
-import { food01, food02, food03, food04 } from "../../Assets/imageDir";
+
 const OrderPage = () => {
   const [isShowing, setShow] = useState(false);
   const [showOtherComponent, setShowOtherComponent] = useState({
@@ -28,10 +28,7 @@ const OrderPage = () => {
         ) : null
       ) : (
         <div className="form-row">
-          <FoodCard price={"23.00"} img={food01} />
-          <FoodCard price={"23.00"} img={food02} />
-          <FoodCard price={"23.00"} img={food03} />
-          <FoodCard price={"23.00"} img={food04} />
+          <FoodCard details={{}} />
         </div>
       )}
     </div>
