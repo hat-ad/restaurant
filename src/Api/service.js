@@ -66,11 +66,12 @@ export default class API {
 
   async httpRequest(method, url, params, header = null) {
     // let token = JSON.parse(await AsyncStorage.getItem("userToken"));
-    // console.log(token);
 
     return new Promise((resolve, reject) => {
       let options;
       if (method === "GET") {
+        const urlParams = new URLSearchParams(params);
+        url = `${url}?${urlParams.toString()}`;
         options = {
           headers: header
             ? header

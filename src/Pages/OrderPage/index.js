@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { FilterComponent, FoodCard, Footer, Header } from "../../Components";
+import { getMenu } from "../../Redux/Actions";
 import "./style.css";
 
 const OrderPage = () => {
@@ -9,26 +11,64 @@ const OrderPage = () => {
     show: false,
     component: "filter",
   });
+  const [filters, setFilters] = useState({
+    name: "",
+    type: "",
+    deliveryType: "",
+    rating: "",
+  });
+
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (window.screen.width > 767) setShow(true);
+    dispatch(getMenu({}));
   }, []);
+
+  const onChangeRating = (e) => {
+    setFilters({ ...filters, rating: e.target.value });
+    dispatch(getMenu({ ...filters, rating: e.target.value }));
+  };
+
+  const onSelectDelivery = (e) => {
+    setFilters({ ...filters, deliveryType: e.target.value });
+    dispatch(getMenu({ ...filters, deliveryType: e.target.value }));
+  };
+
+  const onSelectType = (type) => {
+    setFilters({ ...filters, type });
+    dispatch(getMenu({ ...filters, type }));
+  };
+
+  const onSearch = (e) => {
+    setFilters({ ...filters, name: e.target.value });
+    dispatch(getMenu({ ...filters, name: e.target.value }));
+  };
 
   const MobileViewComponent = () => (
     <div className="col-md-9 mainpage">
       {showOtherComponent.show ? (
-        showOtherComponent.component === "filter" ? (
-          <FilterComponent
-            onClose={() =>
-              setShowOtherComponent({
-                show: false,
-                component: "filter",
-              })
-            }
-          />
-        ) : null
+        // showOtherComponent.component === "filter" && (
+        <FilterComponent
+          onClose={() =>
+            setShowOtherComponent({
+              show: false,
+              component: "filter",
+            })
+          }
+          onChangeRating={onChangeRating}
+          onSearch={onSearch}
+          onSelectDelivery={onSelectDelivery}
+          onSelectType={onSelectType}
+          filters={filters}
+        />
       ) : (
+        // )
         <div className="form-row">
-          <FoodCard details={{}} />
+          {cart.menu.map((item) => (
+            <FoodCard details={item} key={item.id} />
+          ))}
         </div>
       )}
     </div>
@@ -60,7 +100,20 @@ const OrderPage = () => {
               </div>
             )}
             <div className="row">
-              <FilterComponent className="d-none d-lg-block d-xl-block d-md-block " />
+              <FilterComponent
+                className="d-none d-lg-block d-xl-block d-md-block "
+                onClose={() =>
+                  setShowOtherComponent({
+                    show: false,
+                    component: "filter",
+                  })
+                }
+                onChangeRating={onChangeRating}
+                onSearch={onSearch}
+                onSelectDelivery={onSelectDelivery}
+                onSelectType={onSelectType}
+                filters={filters}
+              />
               <MobileViewComponent />
             </div>
           </div>

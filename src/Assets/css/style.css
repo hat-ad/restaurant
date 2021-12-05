@@ -2235,6 +2235,7 @@ footer .powered .social li a:hover i {
   background: #fff;
   position: relative;
   overflow: hidden;
+  /* height: 20rem; */
 }
 /* .shop .product-grid .product-thumb .image:hover {
   -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
@@ -2270,9 +2271,7 @@ footer .powered .social li a:hover i {
   font-size: 18px;
   color: #ffa41f;
 }
-.shop .product-thumb .caption .rating i:last-child {
-  color: #b2b2b2;
-}
+
 .shop .product-thumb .caption .price {
   font-size: 22px;
   font-weight: 600;
@@ -2355,9 +2354,7 @@ footer .powered .social li a:hover i {
   font-size: 18px;
   color: #ffa41f;
 }
-.shopdetail .rating i:last-child {
-  color: #b1b1b1;
-}
+
 .shopdetail .price {
   font-size: 22px;
   color: #e54c2a;
@@ -2648,9 +2645,7 @@ footer .powered .social li a:hover i {
   font-size: 14px;
   color: #ffa41f;
 }
-.mycart #tab-cart td .rating i:last-child {
-  color: #b2b2b2;
-}
+
 .mycart #tab-cart tbody tr td:nth-child(2),
 .mycart #tab-cart tbody tr td:nth-child(4) {
   font-size: 18px;

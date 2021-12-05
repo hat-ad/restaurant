@@ -8,6 +8,7 @@ const FilterComponent = ({
   onSelectType,
   onSelectDelivery,
   onChangeRating,
+  filters,
 }) => {
   return (
     <div className={`col-md-3 filter-div ${className}`}>
@@ -31,7 +32,8 @@ const FilterComponent = ({
                   placeholder="Search Food"
                   type="text"
                   style={{ color: "black" }}
-                  onChange={(e) => onSearch(e.target.value)}
+                  onChange={onSearch}
+                  value={filters.name}
                 />
               </div>
               <ul className="list-unstyled">
@@ -41,7 +43,9 @@ const FilterComponent = ({
                       type="radio"
                       name="payment"
                       className="checkclassName"
-                      onChange={(e) => onSelectType(e.target.textContent)}
+                      // value="veg"
+                      onChange={() => onSelectType("veg")}
+                      value={filters.type}
                     />
                     Vegetarian
                   </label>
@@ -53,7 +57,9 @@ const FilterComponent = ({
                       type="radio"
                       name="payment"
                       className="checkclassName"
-                      onChange={(e) => onSelectType(e.target.textContent)}
+                      // value="non-veg"
+                      onChange={() => onSelectType("non-veg")}
+                      value={filters.type}
                     />
                     Non Veg
                   </label>
@@ -72,7 +78,8 @@ const FilterComponent = ({
                     type="radio"
                     name="payment"
                     className="checkclassName"
-                    onChange={(e) => onSelectDelivery(e.target.textContent)}
+                    value="delivery"
+                    onChange={onSelectDelivery}
                   />
                   Delivery
                 </label>
@@ -83,7 +90,8 @@ const FilterComponent = ({
                     type="radio"
                     name="payment"
                     className="checkclassName"
-                    onChange={(e) => onSelectDelivery(e.target.textContent)}
+                    value="pickup"
+                    onChange={onSelectDelivery}
                   />
                   Pickup
                 </label>
@@ -101,7 +109,8 @@ const FilterComponent = ({
                     type="radio"
                     name="payment"
                     className="checkclassName"
-                    onChange={() => onChangeRating(rating)}
+                    value={rating}
+                    onChange={onChangeRating}
                   />
                   {ratingGenerator(rating).map((ratingClass, index) => (
                     <i className={`${ratingClass} fa-star`} key={index}></i>

@@ -1,7 +1,8 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../actionTypes";
+import { ADD_TO_CART, GET_MENU, REMOVE_FROM_CART } from "../actionTypes";
 
 const INITIAL_STATE = {
   cart: [],
+  menu: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
@@ -15,6 +16,11 @@ const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cart: action.payload,
+      };
+    case GET_MENU:
+      return {
+        ...state,
+        menu: action.payload,
       };
     default:
       return state;

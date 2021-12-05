@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./style.css";
 import { addToCart, removeFromCart } from "../../Redux/Actions";
-import { useEffect } from "react";
+import { ratingGenerator } from "../../common/utility";
 const FoodCard = ({ details }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
-  const [cartItem, setCartItem] = useState({});
-
-  useEffect(() => {
-    setCartItem(cart.find((ele) => ele.id === details?.id));
-  }, [cart]);
+  const cartItem = cart.find((ele) => ele._id === details?._id);
 
   const addItemToCart = (menuitem) => {
-    const cartLoc = cart.findIndex((ele) => ele.id === menuitem.id);
+    const cartLoc = cart.findIndex((ele) => ele._id === menuitem._id);
     let payload = [];
 
     if (cartLoc >= 0) {
@@ -28,7 +24,7 @@ const FoodCard = ({ details }) => {
   };
 
   const removeItemFromCart = (menuitem) => {
-    const cartLoc = cart.findIndex((ele) => ele.id === menuitem.id);
+    const cartLoc = cart.findIndex((ele) => ele._id === menuitem._id);
     let payload = [];
 
     // if more than one element left in cart just decrease quantity
@@ -38,7 +34,7 @@ const FoodCard = ({ details }) => {
     }
     // if 1 element left in cart remove it from cart
     else {
-      payload = cart.filter((ele) => ele.id !== menuitem.id);
+      payload = cart.filter((ele) => ele._id !== menuitem._id);
     }
     dispatch(removeFromCart(payload));
   };
@@ -48,19 +44,18 @@ const FoodCard = ({ details }) => {
       className="
     product-layout product-grid
     col-lg-4 col-md-4 col-sm-6 col-6 
+    
   "
     >
+      <img
+        src={details?.img}
+        alt="Food"
+        title="Food image"
+        className="card-img-top"
+      />
       <div className="product-thumb product-shadow ">
-        <div className="image">
-          <img
-            src={details?.img}
-            alt="Food"
-            title="Food image"
-            className="img-fluid"
-          />
-        </div>
         <div className="caption">
-          <h4>{details?.title}</h4>
+          <h4>{details?.name}</h4>
           {!cartItem?.count ? (
             <button
               className="add-to-cart"
@@ -82,14 +77,12 @@ const FoodCard = ({ details }) => {
             </div>
           )}
           <div className="rating">
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="far fa-star"></i>
+            {ratingGenerator(details?.rating).map((item, index) => (
+              <i className={`${item} fa-star`} key={index}></i>
+            ))}
           </div>
           <div className="price">${details?.price}</div>
-          <p className="des">Cursus / Dictum / Risus</p>
+          <p className="card-text">Cursus / Dictum / Risus</p>
           <p>{details?.description}</p>
           <p></p>
         </div>
