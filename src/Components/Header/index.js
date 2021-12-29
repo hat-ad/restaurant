@@ -34,12 +34,15 @@ const Header = () => {
             <Nav.Link href="#chefs" className="nav-links">
               Chefs
             </Nav.Link>
-            <Nav.Link href="#reservation" className="nav-links mr-5">
+            <Nav.Link href="#reservation" className="nav-links">
               Contact Us
             </Nav.Link>
+            <Link to="/cart" className="nav-links nav-link">
+              Cart
+            </Link>
             {!authDetails.authDetails ? (
               <>
-                <div className="d-flex">
+                <div className="d-flex ml-5">
                   <li className="scroll-to-section mr-3">
                     <button onClick={() => handleShowSignIn(!showSignIn)}>
                       Sign In
@@ -55,7 +58,7 @@ const Header = () => {
             ) : (
               <NavDropdown
                 title={"Welcome," + authDetails?.authDetails?.firstName}
-                id="basic-nav-dropdown"
+                id="basic-nav-dropdown ml-5"
               >
                 <NavDropdown.Item
                   href="#action/3.1"
@@ -63,81 +66,16 @@ const Header = () => {
                 >
                   Logout
                 </NavDropdown.Item>
-
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
+                {/* <Link to="/cart" className="dropdown-item">
+                  Cart
+                </Link> */}
+                {/* <NavDropdown.Item href="#action/3.4">Cart</NavDropdown.Item> */}
               </NavDropdown>
             )}
           </Nav>
         </Navbar.Collapse>
         {/* </Container> */}
       </Navbar>
-      {/* <Navbar className="header-area header-sticky" expand="md">
-        <Container className="justify-content-between">
-          <Navbar.Brand href="#">
-            <img src={klassLogo} align="klassy cafe html template" alt="logo" />
-          </Navbar.Brand>
-
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Nav className="main-nav">
-            <Navbar.Collapse
-              className="nav justify-content-end"
-              id="basic-navbar-nav"
-            >
-              <li className="scroll-to-section">
-                <a href="#top" className="active">
-                  Home
-                </a>
-              </li>
-              <li className="scroll-to-section">
-                <a href="#about">About</a>
-              </li>
-
-              <li className="scroll-to-section">
-                <a href="#menu">Menu</a>
-              </li>
-              <li className="scroll-to-section">
-                <a href="#chefs">Chefs</a>
-              </li>
-
-              <li className="scroll-to-section">
-                <a href="#reservation">Contact Us</a>
-              </li>
-              {!authDetails.authDetails ? (
-                <>
-                  <li className="scroll-to-section">
-                    <Button onClick={() => handleShowSignIn(!showSignIn)}>
-                      Sign In
-                    </Button>
-                  </li>
-                  <li className="scroll-to-section">
-                    <Button onClick={() => handleShowSignUp(!showSignUp)}>
-                      Sign Up
-                    </Button>
-                  </li>
-                </>
-              ) : (
-                <li className="submenu d-flex align-items-center">
-                  <a href="#/">
-                    <div className="rounded-container mr-2">
-                      <img src={people} alt="" />
-                    </div>
-                  </a>
-                  <span>Welcome, {authDetails?.authDetails?.firstName}</span>
-                  <ul>
-                    <li>
-                      <a href="#/" onClick={() => dispatch(logout())}>
-                        Logout
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              )}
-            </Navbar.Collapse>
-          </Nav>
-        </Container>
-      </Navbar> */}
       <SignIn
         show={showSignIn}
         handleClose={() => handleShowSignIn(false)}

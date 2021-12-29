@@ -52,6 +52,7 @@ const FoodCard = ({ details }) => {
         alt="Food"
         title="Food image"
         className="card-img-top"
+        style={{ maxHeight: "18rem" }}
       />
       <div className="product-thumb product-shadow ">
         <div className="caption">

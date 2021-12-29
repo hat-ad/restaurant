@@ -38,7 +38,6 @@ const Footer = () => {
               <p>
                 © Copyright Klassy Cafe Co.
                 <br />
-                Design: TemplateMo
               </p>
             </div>
           </div>

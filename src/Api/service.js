@@ -52,10 +52,13 @@ export default class API {
       fetch(url, options)
         .then((response) => {
           // console.log("____response____ ", response);
-          response.json().then((responseJson) => {
-            console.log("_response__", responseJson);
-            resolve(responseJson);
-          });
+          response
+            .json()
+            .then((responseJson) => {
+              console.log("_response__", responseJson);
+              resolve(responseJson);
+            })
+            .catch((error) => reject(error));
         })
         .catch((error) => {
           console.log("error: ", error);
@@ -99,12 +102,15 @@ export default class API {
       }
 
       console.log("api -> " + url);
-      console.log("params -> ", options);
       fetch(url, options)
         .then((response) => {
-          response.json().then((responseJson) => {
-            resolve(responseJson);
-          });
+          response
+            .json()
+            .then((responseJson) => {
+              console.log("params -> ", responseJson);
+              resolve(responseJson);
+            })
+            .catch((error) => reject(error));
         })
         .catch((error) => {
           // console.log("error: ", error);
@@ -133,9 +139,12 @@ export default class API {
         .then((response) => {
           console.log("_response_ ", response);
 
-          response.json().then((responseJson) => {
-            resolve(responseJson);
-          });
+          response
+            .json()
+            .then((responseJson) => {
+              resolve(responseJson);
+            })
+            .catch((error) => reject(error));
         })
         .catch((error) => {
           console.log("error: ", error);

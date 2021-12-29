@@ -36,43 +36,15 @@ const OrderPage = () => {
     dispatch(getMenu({ ...filters, deliveryType: e.target.value }));
   };
 
-  const onSelectType = (type) => {
-    setFilters({ ...filters, type });
-    dispatch(getMenu({ ...filters, type }));
+  const onSelectType = (e) => {
+    setFilters({ ...filters, type: e.target.value });
+    dispatch(getMenu({ ...filters, type: e.target.value }));
   };
 
   const onSearch = (e) => {
     setFilters({ ...filters, name: e.target.value });
     dispatch(getMenu({ ...filters, name: e.target.value }));
   };
-
-  const MobileViewComponent = () => (
-    <div className="col-md-9 mainpage">
-      {showOtherComponent.show ? (
-        // showOtherComponent.component === "filter" && (
-        <FilterComponent
-          onClose={() =>
-            setShowOtherComponent({
-              show: false,
-              component: "filter",
-            })
-          }
-          onChangeRating={onChangeRating}
-          onSearch={onSearch}
-          onSelectDelivery={onSelectDelivery}
-          onSelectType={onSelectType}
-          filters={filters}
-        />
-      ) : (
-        // )
-        <div className="form-row">
-          {cart.menu.map((item) => (
-            <FoodCard details={item} key={item.id} />
-          ))}
-        </div>
-      )}
-    </div>
-  );
 
   return (
     <>
@@ -83,7 +55,7 @@ const OrderPage = () => {
             {!isShowing && (
               <div className="d-flex justify-content-between mb-3 mt-3 ">
                 <Button
-                  className="pr-5 pl-5 outline"
+                  // className="pr-5 pl-5 outline"
                   onClick={() => {
                     console.log("i was clicked");
                     setShowOtherComponent({
@@ -94,7 +66,9 @@ const OrderPage = () => {
                 >
                   <i className="fas fa-filter mr-1"></i>Filter
                 </Button>
-                <Button className="pr-5 pl-5 ">
+                <Button
+                //  className="pr-5 pl-5 "
+                >
                   <i className="fas fa-shopping-cart mr-1"></i>Cart
                 </Button>
               </div>
@@ -114,7 +88,31 @@ const OrderPage = () => {
                 onSelectType={onSelectType}
                 filters={filters}
               />
-              <MobileViewComponent />
+              <div className="col-md-9 mainpage">
+                {showOtherComponent.show ? (
+                  showOtherComponent.component === "filter" && (
+                    <FilterComponent
+                      onClose={() =>
+                        setShowOtherComponent({
+                          show: false,
+                          component: "filter",
+                        })
+                      }
+                      onChangeRating={onChangeRating}
+                      onSearch={onSearch}
+                      onSelectDelivery={onSelectDelivery}
+                      onSelectType={onSelectType}
+                      filters={filters}
+                    />
+                  )
+                ) : (
+                  <div className="form-row">
+                    {cart.menu.map((item) => (
+                      <FoodCard details={item} key={item.id} />
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>

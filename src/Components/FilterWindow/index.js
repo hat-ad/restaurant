@@ -8,7 +8,6 @@ const FilterComponent = ({
   onSelectType,
   onSelectDelivery,
   onChangeRating,
-  filters,
 }) => {
   return (
     <div className={`col-md-3 filter-div ${className}`}>
@@ -33,7 +32,6 @@ const FilterComponent = ({
                   type="text"
                   style={{ color: "black" }}
                   onChange={onSearch}
-                  value={filters.name}
                 />
               </div>
               <ul className="list-unstyled">
@@ -43,9 +41,8 @@ const FilterComponent = ({
                       type="radio"
                       name="payment"
                       className="checkclassName"
-                      // value="veg"
-                      onChange={() => onSelectType("veg")}
-                      value={filters.type}
+                      value="veg"
+                      onChange={onSelectType}
                     />
                     Vegetarian
                   </label>
@@ -57,9 +54,8 @@ const FilterComponent = ({
                       type="radio"
                       name="payment"
                       className="checkclassName"
-                      // value="non-veg"
-                      onChange={() => onSelectType("non-veg")}
-                      value={filters.type}
+                      value="non-veg"
+                      onChange={onSelectType}
                     />
                     Non Veg
                   </label>

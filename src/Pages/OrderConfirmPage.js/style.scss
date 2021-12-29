@@ -81,7 +81,7 @@ img {
       font-size: 0.75em;
       padding: 1em;
       color: #fff;
-      background: #de5d5d;
+      background: #e32249 !important;
       font-weight: bold;
       border-radius: 50px;
       float: right;
@@ -98,10 +98,10 @@ img {
     &:hover,
     &:focus,
     &:active {
-      background: #f69679;
+      // background: #f69679;
 
       &:after {
-        right: -10px;
+        // right: -10px;
       }
     }
   }
@@ -287,10 +287,10 @@ a.remove {
       outline: 0;
     }
   }
-  a.btn {
-    float: left;
-    width: 15%;
-    padding: 0.75em 0;
+  .btn {
+    // float: left;
+    // width: 15%;
+    // padding: 0.75em 0;
     border-radius: 0 1em 1em 0;
     text-align: center;
     border: 1px solid #82ca9c;
@@ -328,9 +328,9 @@ a.remove {
   &:focus,
   &:active {
     background: #f69679;
-    &:after {
-      right: -10px;
-    }
+    // &:after {
+    //   right: -10px;
+    // }
   }
 
   .promoCode & {
